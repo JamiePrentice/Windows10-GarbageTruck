@@ -1,6 +1,6 @@
-# Remove all Appx Packages except Store, Calculator and Photos
-Get-AppxPackage -allusers | where-object {$_.name –notlike "*store*"} | where-object {$_.name –notlike "*photos*"} | where-object {$_.name –notlike "*calculator*"} | Remove-AppxPackage -erroraction 'silentlycontinue'
-Get-AppxProvisionedPackage -online | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*photos*"} | where-object {$_.name -notlike "*calculator*"} | Remove-AppxProvisionedPackage -online | Out-Null -erroraction 'silentlycontinue'
+# Remove all Appx Packages except Store
+Get-AppxPackage -allusers | where-object {$_.name –notlike "*store*"} | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxProvisionedPackage -online | where-object {$_.name -notlike "*store*"} | Remove-AppxProvisionedPackage -online | Out-Null -erroraction 'silentlycontinue'
 
 # Disable Cortana
 New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Value "0" ` -PropertyType DWORD -Force | Out-Null
