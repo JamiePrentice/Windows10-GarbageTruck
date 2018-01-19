@@ -426,8 +426,4 @@ add-content $Env:TEMP\startlayout.xml $startlayoutstr
 import-startlayout -layoutpath $Env:TEMP\startlayout.xml -mountpath $Env:SYSTEMDRIVE\
 remove-item $Env:TEMP\startlayout.xml
 
-Write-Host "Enter New Computer Name"
-$computername = Read-Host
-Rename-Computer -NewName $computername
-
 Set-WindowsExplorerOptions -EnableShowFullPathInTitleBar
